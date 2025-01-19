@@ -34,7 +34,7 @@ function App() {
       {/* Global Header with Logo */}
       <div className="app-header">
         <img
-          src='/images/Spendr logo <3 $ only.png' // Replace with the correct path to your logo
+          src='/images/logo.png' // Replace with the correct path to your logo
           alt="Spendr Logo"
           className="app-logo"
           onClick={() => navigate('/')} // Navigate to home page
