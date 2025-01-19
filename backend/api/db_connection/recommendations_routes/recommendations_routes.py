@@ -1,9 +1,7 @@
 # Handle matchmaking and recommendations using LightFM.
-# backend/recommend_routes/recommend_routes.py
-
 from flask import Blueprint, jsonify, request
-from backend.match_making.match_making import MatchMaking
-from backend.db_connection import db
+from backend.api.db_connection.match_making.match_making import MatchMaking
+from backend.api.db_connection import db
 import logging
 import random
 
