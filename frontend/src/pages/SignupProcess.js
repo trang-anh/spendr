@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import SignupPage1 from './SignupPage1';
 import SignupPage2 from './SignupPage2';
 
-function SignupProcess() {
+function SignupProcess({ setUser }) {
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({});
   const navigate = useNavigate();
@@ -21,8 +21,11 @@ function SignupProcess() {
     const finalData = { ...formData, ...data };
     console.log('Signup Complete:', finalData);
 
-    // Redirect to the dashboard with the user data
-    navigate('/dashboard', { state: finalData });
+    // Update the centralized user state
+    setUser(finalData);
+
+    // Redirect to the dashboard
+    navigate('/dashboard');
   };
 
   return (

@@ -1,28 +1,41 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
-import SignupProcess from './pages/SignupProcess';
 import Dashboard from './pages/Dashboard';
 import Explore from './pages/Explore';
 import Settings from './pages/Settings';
+import SignupProcess from './pages/SignupProcess';
 import GlobalNavigation from './components/GlobalNavigation';
-
+import SpenderTypeDescriptions from './pages/SpenderTypeDescriptions';
 function App() {
-  const location = useLocation(); // Get the current route path
+  const [user, setUser] = useState({
+    username: 'Richie Bucks',
+    profileImage: '/images/richie.jpg',
+    memberType: 'Base Member',
+    spenderType: 'YOLO',
+    location: 'New York',
+    age: 25,
+    gender: 'Male',
+    sexuality: 'Heterosexual',
+    matches: [
+      { name: 'Emily R.', type: 'YOLO', avatar: '/images/emily.jpg' },
+      { name: 'John D.', type: 'Investor', avatar: '/images/john.jpg' },
+    ],
+  });
 
-  // Define routes where the navigation bar should be hidden
+  const location = useLocation();
   const hideNavigation = location.pathname === '/';
 
   return (
-    <div className="app-container">
+    <div>
       <Routes>
-        {/* Define routes */}
-        <Route path="/" element={<SignupProcess />} />
-        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/" element={<SignupProcess setUser={setUser} />} />
+        <Route path="/dashboard" element={<Dashboard user={user} />} />
         <Route path="/explore" element={<Explore />} />
-        <Route path="/settings" element={<Settings />} />
+        <Route path="/settings" element={<Settings user={user} setUser={setUser} />} />
+        <Route path="/spender-types" element={<SpenderTypeDescriptions />} />
       </Routes>
 
-      {/* Conditionally render navigation */}
+      {/* Show navigation bar unless on the signup page */}
       {!hideNavigation && <GlobalNavigation />}
     </div>
   );
