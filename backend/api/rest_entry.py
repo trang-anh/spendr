@@ -1,8 +1,8 @@
 from flask import Flask
-from backend.db_connection import db
-from match_making_routes.match_making_routes import match_making_bp
-from recommend_routes.recommend_routes import recommendations_bp
-from transaction_routes.transactions_routes import transactions_bp
+from api.db_connection import db
+from api.match_making import match_making_bp
+from api.recommendations_routes import recommendations_bp
+from api.transactions_routes import transactions_bp
 from users_routes.users_routes import users_bp
 import os
 from dotenv import load_dotenv
