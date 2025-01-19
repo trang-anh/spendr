@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 // import axios from 'axios'; // Commented out for now; enable when integrating backend
 import DashboardHeader from '../components/DashboardHeader';
 import SpendingTypeCard from '../components/SpendingTypeCard';
@@ -25,9 +25,7 @@ function Dashboard() {
     { name: 'Vanessa D.', avatar: '/images/vanessa.jpg', time: '16h', type: 'Luxury Lover' },
   ]);
 
-  // Placeholder state for premium status
-  const [isPremium, setIsPremium] = useState(false); // Default to non-premium
-
+  
   /*
   // Uncomment the useEffect block when ready to integrate backend
   useEffect(() => {
@@ -49,7 +47,7 @@ function Dashboard() {
   // Navigation handler (mocked for now)
   const navigateTo = (page) => {
     console.log(`Navigating to ${page}`);
-    if (page === 'liked-me' && !isPremium) {
+    if (page === 'liked-me') {
       console.log('Redirecting to Pricing Page for Premium Feature');
       // Redirect to Pricing Page
       window.location.href = '/pricing'; // Temporary redirect
@@ -78,9 +76,9 @@ function Dashboard() {
       <RecentMatchesSection matches={matches} /> {/* Placeholder matches */}
 
       {/* Dashboard Footer */}
-      <DashboardFooter navigateTo={navigateTo} isPremium={isPremium} />
+      <DashboardFooter navigateTo={navigateTo}/>
 
-      
+
     </div>
   );
 }

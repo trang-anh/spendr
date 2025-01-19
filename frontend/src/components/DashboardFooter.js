@@ -8,7 +8,7 @@ function DashboardFooter({ navigateTo }) {
 
   const handleLikedMe = () => {
     // Always redirect to Pricing Page
-    window.location.href = '/pricing';
+    // window.location.href = '/pricing';
   };
 
   const handleTopPicks = () => {
