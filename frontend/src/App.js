@@ -1,18 +1,23 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Dashboard from './pages/Dashboard';
-import Pricing from './pages/Pricing';
+import Explore from './pages/Explore';
+import Settings from './pages/Settings'; // Create this placeholder file
+import GlobalNavigation from './components/GlobalNavigation';
 import Signup from './pages/Signup';
 
 function App() {
   return (
     <Router>
-      <Routes>
-        <Route path="/" element={<Signup />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/pricing" element={<Pricing />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-      </Routes>
+      <div className="app-container">
+        <Routes>
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/explore" element={<Explore />} />
+          <Route path="/settings" element={<Settings />} />
+        </Routes>
+        <GlobalNavigation />
+      </div>
     </Router>
   );
 }
