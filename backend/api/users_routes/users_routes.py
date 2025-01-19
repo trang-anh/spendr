@@ -7,7 +7,7 @@ import logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-users_bp = Blueprint('users', __name__)
+users_bp = Blueprint('users_bp', __name__)
 
 @users_bp.route('/register', methods=['POST'])
 def register_user():
