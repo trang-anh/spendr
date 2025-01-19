@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import '../styles/SignupPage1.css';
 
 function SignupPage1({ onNext }) {
   const [formData, setFormData] = useState({
@@ -9,60 +10,60 @@ function SignupPage1({ onNext }) {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
+    setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleNext = () => {
     if (formData.username && formData.password && formData.email) {
-      onNext(formData); // Pass data to parent
+      onNext(formData);
     } else {
-      alert('Please fill in all fields.');
+      alert('Please fill out all fields before proceeding.');
     }
   };
 
   return (
-    <div className="signup-page">
-      <h1>Create Your Account</h1>
-      <form onSubmit={handleSubmit}>
+    <div className="signup-page-1">
+      <div className="signup-card">
+        <h1>Create Your Account</h1>
+        <p>Let’s get started by setting up your basic account details.</p>
+
         <div className="form-group">
-          <label htmlFor="username">Username</label>
+          <label>Username</label>
           <input
             type="text"
-            id="username"
             name="username"
             value={formData.username}
             onChange={handleChange}
-            required
+            placeholder="Enter your username"
           />
         </div>
+
         <div className="form-group">
-          <label htmlFor="password">Password</label>
-          <input
-            type="password"
-            id="password"
-            name="password"
-            value={formData.password}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="email">Email</label>
+          <label>Email</label>
           <input
             type="email"
-            id="email"
             name="email"
             value={formData.email}
             onChange={handleChange}
-            required
+            placeholder="Enter your email"
           />
         </div>
-        <button type="submit">Next</button>
-      </form>
+
+        <div className="form-group">
+          <label>Password</label>
+          <input
+            type="password"
+            name="password"
+            value={formData.password}
+            onChange={handleChange}
+            placeholder="Enter your password"
+          />
+        </div>
+
+        <button className="next-button" onClick={handleNext}>
+          Next
+        </button>
+      </div>
     </div>
   );
 }
