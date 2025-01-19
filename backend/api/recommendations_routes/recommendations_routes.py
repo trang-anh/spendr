@@ -2,8 +2,8 @@
 # backend/recommend_routes/recommend_routes.py
 
 from flask import Blueprint, jsonify, request
-from backend.match_making.match_making import MatchMaking
-from backend.api.db_connection import db
+from api.match_making.match_making import MatchMaking
+from api.db_connection import db
 import logging
 import random
 
@@ -11,7 +11,7 @@ import random
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-recommendations_bp = Blueprint('recommendations', __name__)
+recommendations_bp = Blueprint('recommendations_bp', __name__)
 
 # Initialize MatchMaking instance
 match_maker = MatchMaking()

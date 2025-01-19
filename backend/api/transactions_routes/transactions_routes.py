@@ -9,7 +9,7 @@ from backend.qfx_reader.qfx_parser import read_qfx
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-transactions_bp = Blueprint('transactions', __name__)
+transactions_bp = Blueprint('transactions_bp', __name__)
 
 @transactions_bp.route('/upload_csv', methods=['POST'])
 def upload_csv():

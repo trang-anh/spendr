@@ -1,9 +1,8 @@
 from flask import Flask
 from api.db_connection import db
-from api.match_making import match_making_bp
-from api.recommendations_routes import recommendations_bp
-from api.transactions_routes import transactions_bp
-from users_routes.users_routes import users_bp
+from api.recommendations_routes.recommendations_routes import recommendations_bp
+from api.transactions_routes.transactions_routes import transactions_bp
+from api.users_routes.users_routes import users_bp
 import os
 from dotenv import load_dotenv
 
@@ -14,26 +13,24 @@ def create_app():
     load_dotenv()
 
     # Configure DB
-    app.config['MYSQL_USER'] = os.getenv('DB_USER').strip()
-    app.config['MYSQL_PASSWORD'] = os.getenv('MYSQL_ROOT_PASSWORD').strip()
-    app.config['MYSQL_HOST'] = os.getenv('DB_HOST').strip()
-    app.config['MYSQL_PORT'] = int(os.getenv('DB_PORT').strip())
-    app.config['MYSQL_DB'] = os.getenv('DB_NAME').strip()
+    app.config['MYSQL_DATABASE_USER'] = os.getenv('DB_USER').strip()
+    app.config['MYSQL_DATABASE_PASSWORD'] = os.getenv('MYSQL_ROOT_PASSWORD').strip()
+    app.config['MYSQL_DATABASE_HOST'] = os.getenv('DB_HOST').strip()
+    app.config['MYSQL_DATABASE_PORT'] = int(os.getenv('DB_PORT').strip())
+    app.config['MYSQL_DATABASE_DB'] = os.getenv('DB_NAME').strip()
 
     # Secret key
     app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
+    app.logger.info('current_app(): starting the database connection')
 
     # Initialize the database
     db.init_app(app)
+    app.logger.info('current_app(): registering blueprints with Flask app object.')   
+
 
     # Register blueprints
-    app.register_blueprint(users_bp, url_prefix='/users')
-    app.register_blueprint(transactions_bp, url_prefix='/transactions')
-    app.register_blueprint(recommendations_bp, url_prefix='/recommendations')
-    app.register_blueprint(match_making_bp, url_prefix='/matchmaking')  # If applicable
+    app.register_blueprint(users_bp)
+    app.register_blueprint(transactions_bp)
+    app.register_blueprint(recommendations_bp)
 
     return app
-
-if __name__ == "__main__":
-    app = create_app()
-    app.run(host='0.0.0.0', port=5000, debug=True)
