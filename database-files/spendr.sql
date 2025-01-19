@@ -8,6 +8,7 @@ CREATE TABLE IF NOT EXISTS Category (
     emoji_column VARCHAR(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci
 );
 
+
 CREATE TABLE IF NOT EXISTS Vendors (
 vendor_id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
 vendor_name VARCHAR(50) NOT NULL,
@@ -40,10 +41,13 @@ CREATE TABLE IF NOT EXISTS Users
 CREATE TABLE IF NOT EXISTS Transactions
 (
     transaction_id INT PRIMARY KEY AUTO_INCREMENT,
-    vendor_id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    vendor_id INT,
     user_id INT,
     amount DECIMAL(10, 2),
-    FOREIGN KEY (user_id) REFERENCES Users (user_id)
+    FOREIGN KEY (user_id) REFERENCES Users (user_id) 
+        ON DELETE RESTRICT ON UPDATE CASCADE,
+    FOREIGN KEY (vendor_id) REFERENCES Vendors (vendor_id)
+        ON DELETE RESTRICT ON UPDATE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS SurveyResponses
@@ -62,3 +66,12 @@ CREATE TABLE IF NOT EXISTS SurveyResponses
     FOREIGN KEY (user_id) REFERENCES Users (user_id)
 );
 
+CREATE TABLE Swipes (
+    swipe_id INT AUTO_INCREMENT PRIMARY KEY,
+    swiper_id INT NOT NULL,
+    swiped_id INT NOT NULL,
+    swipe_type ENUM('left', 'right') NOT NULL,
+    timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (swiper_id) REFERENCES Users(user_id),
+    FOREIGN KEY (swiped_id) REFERENCES Users(user_id)
+);
