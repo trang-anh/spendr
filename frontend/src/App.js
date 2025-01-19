@@ -6,6 +6,8 @@ import Settings from './pages/Settings';
 import SignupProcess from './pages/SignupProcess';
 import GlobalNavigation from './components/GlobalNavigation';
 import SpenderTypeDescriptions from './pages/SpenderTypeDescriptions';
+import Pricing from './pages/Pricing';
+
 function App() {
   const [user, setUser] = useState({
     username: 'Richie Bucks',
@@ -33,6 +35,7 @@ function App() {
         <Route path="/explore" element={<Explore />} />
         <Route path="/settings" element={<Settings user={user} setUser={setUser} />} />
         <Route path="/spender-types" element={<SpenderTypeDescriptions />} />
+        <Route path="/pricing" element={<Pricing />} />
       </Routes>
 
       {/* Show navigation bar unless on the signup page */}

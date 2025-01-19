@@ -1,67 +1,81 @@
-import React from 'react';
-import '../styles/Explore.css'; // Import styles
+import React, { useState } from 'react';
+import '../styles/Explore.css';
 
-// Sample profiles
-const profiles = [
+const dummyProfiles = [
   {
     id: 1,
-    photo: '/images/user1.jpg',
     username: 'Emily R.',
-    age: 28,
+    spenderType: 'YOLO',
+    age: 27,
     location: 'Boston, MA',
-    spenderType: 'YOLO Spendr',
+    profileImage: '/images/emily.jpg',
   },
   {
     id: 2,
-    photo: '/images/user2.jpg',
     username: 'John D.',
+    spenderType: 'Investor',
     age: 32,
     location: 'New York, NY',
-    spenderType: 'Investr',
+    profileImage: '/images/john.jpg',
   },
   {
     id: 3,
-    photo: '/images/user3.jpg',
-    username: 'Sarah P.',
+    username: 'Sara P.',
+    spenderType: 'Deal Hunter',
     age: 24,
-    location: 'Austin, TX',
-    spenderType: 'Balanced Budgetr',
-  },
-  {
-    id: 4,
-    photo: '/images/user4.jpg',
-    username: 'Mike K.',
-    age: 30,
-    location: 'Seattle, WA',
-    spenderType: 'Deal Huntr',
+    location: 'Chicago, IL',
+    profileImage: '/images/sara.jpg',
   },
 ];
 
 function Explore() {
+  const [profiles, setProfiles] = useState(dummyProfiles);
+  const [swipeDirection, setSwipeDirection] = useState('');
+
+  const handleSwipe = (direction, profile) => {
+    setSwipeDirection(direction);
+    console.log(`${direction === 'right' ? 'Liked' : 'Disliked'} ${profile.username}`);
+    setTimeout(() => {
+      setProfiles((prev) => prev.filter((p) => p.id !== profile.id));
+      setSwipeDirection('');
+    }, 300); // Delay for animation
+  };
+
   return (
-    <div className="explore-container">
-      <h1>Explore Profiles</h1>
-      <div className="profile-card-container">
-        {profiles.map((profile) => (
-          <div className="profile-card" key={profile.id}>
-            <img
-              src={profile.photo}
-              alt={`${profile.username}'s profile`}
-              className="profile-photo"
-            />
-            <div className="profile-info">
-              <h2>{profile.username}, {profile.age}</h2>
-              <p>{profile.location}</p>
-              <span className={`spender-type ${profile.spenderType.toLowerCase().replace(/\s/g, '-')}`}>
-                {profile.spenderType}
-              </span>
+    <div className="explore-page">
+      <h1 className="explore-title">Explore Profiles</h1>
+      <div className="card-container">
+        {profiles.length > 0 ? (
+          profiles.map((profile, index) => (
+            <div
+              key={profile.id}
+              className={`profile-card ${index === 0 ? swipeDirection : ''}`}
+            >
+              <div
+                className="card-image"
+                style={{
+                  backgroundImage: `url(${profile.profileImage})`,
+                }}
+              ></div>
+              <div className="card-details">
+                <h2>{profile.username}</h2>
+                <p>Spender Type: {profile.spenderType}</p>
+                <p>Age: {profile.age}</p>
+                <p>Location: {profile.location}</p>
+              </div>
+              <div className="card-actions">
+                <button onClick={() => handleSwipe('left', profile)} className="dislike">
+                  Dislike
+                </button>
+                <button onClick={() => handleSwipe('right', profile)} className="like">
+                  Like
+                </button>
+              </div>
             </div>
-            <div className="action-buttons">
-              <button className="dislike-button">Dislike</button>
-              <button className="like-button">Like</button>
-            </div>
-          </div>
-        ))}
+          ))
+        ) : (
+          <p className="no-more-profiles">No more profiles to explore!</p>
+        )}
       </div>
     </div>
   );

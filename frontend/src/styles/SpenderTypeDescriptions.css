@@ -1,53 +1,68 @@
-.spender-type-descriptions {
+/* Spender Types Page */
+.spender-types-page {
+    background: #1e1e1e; /* Dark background */
+    color: white;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     padding: 20px;
-    max-width: 800px;
-    margin: 0 auto;
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  .spender-types-title {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: #00c6ff; /* Teal title */
     text-align: center;
   }
   
-  .spender-type-descriptions h1 {
-    font-size: 2rem;
-    margin-bottom: 10px;
+  .spender-types-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 20px;
   }
   
-  .spender-type-descriptions p {
-    font-size: 1rem;
-    color: #555;
-  }
-  
-  .spender-card {
-    margin: 20px 0;
+  .spender-type-card {
+    background: #2a2a2a;
+    border: 3px solid;
+    border-radius: 15px;
     padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    background-color: #f9f9f9;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   }
   
-  .spender-card h2 {
-    margin-bottom: 10px;
-    font-size: 1.5rem;
-    color: #333;
+  .spender-type-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
   }
   
-  .spender-card p {
-    font-size: 1rem;
-    color: #666;
-  }
-  
-  .back-button {
-    margin-top: 20px;
-    padding: 10px 20px;
-    background-color: #007bff;
+  .spender-type-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px auto;
+    font-size: 2rem;
     color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   }
   
-  .back-button:hover {
-    background-color: #0056b3;
+  .spender-type-card h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: white;
   }
-
+  
+  .spender-type-card p {
+    font-size: 1rem;
+    color: #cccccc;
+    margin: 0;
+  }
+  
