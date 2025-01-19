@@ -1,0 +1,109 @@
+/* Explore Page */
+.explore-page {
+    background: #1e1e1e; /* Dark background */
+    color: white;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .explore-title {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: #00c6ff; /* Teal text */
+  }
+  
+  .card-container {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    height: 550px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .profile-card {
+    position: absolute;
+    width: 100%;
+    max-width: 350px;
+    height: 500px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+    opacity: 1;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+  
+  .profile-card.left {
+    transform: translateX(-400px) rotate(-15deg);
+    opacity: 0;
+  }
+  
+  .profile-card.right {
+    transform: translateX(400px) rotate(15deg);
+    opacity: 0;
+  }
+  
+  .card-image {
+    background-size: cover;
+    background-position: center;
+    height: 65%;
+  }
+  
+  .card-details {
+    padding: 15px;
+    font-size: 1rem;
+    color: #333;
+    background: #f9f9f9; /* Light gray for details */
+  }
+  
+  .card-details h2 {
+    margin: 0;
+    font-size: 1.5rem;
+  }
+  
+  .card-details p {
+    margin: 5px 0;
+  }
+  
+  .card-actions {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 10px;
+    background: #00c6ff; /* Teal actions background */
+  }
+  
+  .card-actions button {
+    background: none;
+    border: none;
+    font-size: 1rem;
+    color: white;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+  }
+  
+  .card-actions button:hover {
+    transform: scale(1.2);
+  }
+  
+  .card-actions .like {
+    color: #00ff6c; /* Green for like */
+  }
+  
+  .card-actions .dislike {
+    color: #ff4d4f; /* Red for dislike */
+  }
+  
+  .no-more-profiles {
+    font-size: 1.2rem;
+    color: #cccccc; /* Light gray */
+    text-align: center;
+  }
+  

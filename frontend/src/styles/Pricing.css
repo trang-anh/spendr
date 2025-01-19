@@ -1,0 +1,73 @@
+/* Pricing Page Styles */
+.pricing-page {
+    background: #1e1e1e; /* Dark background */
+    color: white;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  .pricing-header {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .pricing-header h1 {
+    font-size: 2.5rem;
+    color: #ff4d4f; /* Apology in red */
+  }
+  
+  .pricing-header p {
+    font-size: 1.2rem;
+    color: #cccccc; /* Light gray for supporting text */
+  }
+  
+  .pricing-card {
+    background: linear-gradient(to right, #00c6ff, #00ff6c); /* Teal to green gradient */
+    color: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    width: 300px;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .pricing-card h2 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+  }
+  
+  .pricing-card p {
+    font-size: 1rem;
+    margin-bottom: 20px;
+  }
+  
+  .pricing-details {
+    margin-bottom: 20px;
+  }
+  
+  .pricing-details h3 {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  .upgrade-button {
+    background: #ff4d4f; /* Red upgrade button */
+    color: white;
+    font-size: 1rem;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+  }
+  
+  .upgrade-button:hover {
+    background: #e63946; /* Slightly darker red on hover */
+    transform: scale(1.1); /* Slight zoom effect */
+  }
+  

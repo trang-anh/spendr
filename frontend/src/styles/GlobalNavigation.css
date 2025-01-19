@@ -1,0 +1,60 @@
+/* Global Navigation Bar */
+.global-navigation {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: #1e1e1e; /* Dark background */
+    padding: 10px 0;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  .global-navigation button {
+    background: none;
+    color: white;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: transform 0.2s ease, color 0.2s ease;
+  }
+  
+  .global-navigation button:hover {
+    color: #00c6ff; /* Highlight on hover */
+    transform: scale(1.1); /* Slight zoom */
+  }
+  
+  /* Premium Button */
+  .premium-button {
+    position: relative;
+    font-weight: bold;
+    color: #ffd700; /* Gold text for premium */
+  }
+  
+  .premium-crown {
+    margin-left: 5px;
+    font-size: 1.2rem;
+    vertical-align: middle;
+    animation: crown-shine 2s infinite; /* Subtle shine animation */
+  }
+  
+  @keyframes crown-shine {
+    0%, 100% {
+      transform: scale(1);
+      color: #ffd700;
+    }
+    50% {
+      transform: scale(1.2);
+      color: #ffe066;
+    }
+  }
+  
+  /* Hover Animation for Premium Button */
+  .premium-button:hover {
+    color: #ffe066; /* Brighter gold on hover */
+    transform: scale(1.1); /* Slight zoom effect */
+  }
+  
