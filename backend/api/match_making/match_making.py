@@ -1,7 +1,7 @@
 import numpy as np
 from lightfm import LightFM
 from lightfm.data import Dataset
-from backend.db_connection import db
+from backend.api.db_connection import db
 import logging
 
 # Configure logging

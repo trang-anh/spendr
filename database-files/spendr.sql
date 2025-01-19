@@ -39,6 +39,7 @@ CREATE TABLE IF NOT EXISTS Users
 
 CREATE TABLE IF NOT EXISTS Transactions
 (
+    transaction_id INT PRIMARY KEY AUTO_INCREMENT,
     vendor_id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
     user_id INT,
     amount DECIMAL(10, 2),
