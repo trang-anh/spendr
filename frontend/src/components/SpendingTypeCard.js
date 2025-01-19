@@ -1,17 +1,19 @@
 import React from 'react';
 import '../styles/SpendingTypeCard.css';
 
-function SpendingTypeCard({ spendingType, location, age, gender, sexuality }) {
+function SpendingTypeCard({ spendingType, location, age, gender, sexuality, profileImage }) {
   return (
-    <div className="spending-type-card">
-      <h2>Your Public Profile</h2>
-      <ul>
-        <li><strong>Location:</strong> {location}</li>
-        <li><strong>Age:</strong> {age}</li>
-        <li><strong>Gender:</strong> {gender}</li>
-        <li><strong>Sexuality:</strong> {sexuality}</li>
-        <li><strong>Spender Type:</strong> {spendingType}</li>
-      </ul>
+    <div className="credit-card">
+      <div className="card-profile">
+        <img src={profileImage || '/default-profile.png'} alt="Profile" className="profile-image" />
+      </div>
+      <div className="card-details">
+        <h2 className="spender-type">{spendingType} Spender</h2>
+        <p>Location: {location}</p>
+        <p>Age: {age}</p>
+        <p>Gender: {gender}</p>
+        <p>Sexuality: {sexuality}</p>
+      </div>
     </div>
   );
 }

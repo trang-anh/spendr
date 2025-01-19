@@ -8,7 +8,6 @@ function RecentMatchesSection({ matches = [] }) {
 
   return (
     <div className="recent-matches-section">
-      <h2>Recent Matches</h2>
       <ul>
         {matches.map((match, index) => (
           <li key={index} className="match-card">
