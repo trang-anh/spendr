@@ -1,14 +1,16 @@
 import React from 'react';
+import '../styles/SpendingTypeCard.css';
 
-function SpendingTypeCard({ spendingType, preferences }) {
+function SpendingTypeCard({ spendingType, location, age, gender, sexuality }) {
   return (
-    <div className="spending-card">
-      <h3>{spendingType} Spending Type</h3>
-      <p>Most recent preferences:</p>
+    <div className="spending-type-card">
+      <h2>Your Public Profile</h2>
       <ul>
-        {preferences.map((preference, index) => (
-          <li key={index}>{preference}</li>
-        ))}
+        <li><strong>Location:</strong> {location}</li>
+        <li><strong>Age:</strong> {age}</li>
+        <li><strong>Gender:</strong> {gender}</li>
+        <li><strong>Sexuality:</strong> {sexuality}</li>
+        <li><strong>Spender Type:</strong> {spendingType}</li>
       </ul>
     </div>
   );

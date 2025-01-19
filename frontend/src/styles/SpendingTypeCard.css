@@ -1,0 +1,42 @@
+.spending-type-card {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 20px 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .spending-type-card h2 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #333;
+  }
+  
+  .spending-type-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .spending-type-card ul li {
+    margin: 8px 0;
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+    color: #555;
+  }
+  
+  .spending-type-card ul li strong {
+    color: #000;
+  }
+  
+  .spending-type-card ul li:hover {
+    background-color: #e6f7ff;
+    border-color: #91d5ff;
+    color: #1890ff;
+    transition: 0.3s;
+  }
+  

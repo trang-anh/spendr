@@ -1,25 +1,39 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import SignupProcess from './pages/SignupProcess';
 import Dashboard from './pages/Dashboard';
 import Explore from './pages/Explore';
-import Settings from './pages/Settings'; // Create this placeholder file
+import Settings from './pages/Settings';
 import GlobalNavigation from './components/GlobalNavigation';
-import Signup from './pages/Signup';
 
 function App() {
+  const location = useLocation(); // Get the current route path
+
+  // Define routes where the navigation bar should be hidden
+  const hideNavigation = location.pathname === '/';
+
+  return (
+    <div className="app-container">
+      <Routes>
+        {/* Define routes */}
+        <Route path="/" element={<SignupProcess />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/explore" element={<Explore />} />
+        <Route path="/settings" element={<Settings />} />
+      </Routes>
+
+      {/* Conditionally render navigation */}
+      {!hideNavigation && <GlobalNavigation />}
+    </div>
+  );
+}
+
+function AppWrapper() {
   return (
     <Router>
-      <div className="app-container">
-        <Routes>
-          <Route path="/signup" element={<Signup />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/explore" element={<Explore />} />
-          <Route path="/settings" element={<Settings />} />
-        </Routes>
-        <GlobalNavigation />
-      </div>
+      <App />
     </Router>
   );
 }
 
-export default App;
+export default AppWrapper;

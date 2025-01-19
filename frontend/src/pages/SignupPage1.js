@@ -1,12 +1,10 @@
 import React, { useState } from 'react';
-import '../styles/Signup.css';
 
-function Signup() {
+function SignupPage1({ onNext }) {
   const [formData, setFormData] = useState({
     username: '',
     password: '',
-    location: '',
-    gender: '',
+    email: '',
   });
 
   const handleChange = (e) => {
@@ -19,13 +17,16 @@ function Signup() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    alert('Signup Successful! 🎉');
+    if (formData.username && formData.password && formData.email) {
+      onNext(formData); // Pass data to parent
+    } else {
+      alert('Please fill in all fields.');
+    }
   };
 
   return (
-    <div className="signup-container">
-      <h1>Sign Up</h1>
+    <div className="signup-page">
+      <h1>Create Your Account</h1>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="username">Username</label>
@@ -50,37 +51,20 @@ function Signup() {
           />
         </div>
         <div className="form-group">
-          <label htmlFor="location">Location</label>
+          <label htmlFor="email">Email</label>
           <input
-            type="text"
-            id="location"
-            name="location"
-            value={formData.location}
+            type="email"
+            id="email"
+            name="email"
+            value={formData.email}
             onChange={handleChange}
             required
           />
         </div>
-        <div className="form-group">
-          <label htmlFor="gender">Gender</label>
-          <select
-            id="gender"
-            name="gender"
-            value={formData.gender}
-            onChange={handleChange}
-            required
-          >
-            <option value="">Select Gender</option>
-            <option value="Male">Male</option>
-            <option value="Female">Female</option>
-            <option value="Other">Other</option>
-          </select>
-        </div>
-        <button type="submit" className="signup-button">
-          Sign Up
-        </button>
+        <button type="submit">Next</button>
       </form>
     </div>
   );
 }
 
-export default Signup;
+export default SignupPage1;
