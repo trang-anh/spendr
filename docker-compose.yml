@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  api:
+    build: ./backend
+    container_name: web-api
+    hostname: web-api
+    volumes: ['/backend:/apicode']
+    ports:
+      - 4000:4000
+
+  db:
+    env_file:
+      - ./backend/.env
+    image: mysql:8
+    container_name: mysql_db
+    hostname: db
+    ports:
+      - 3200:3306
+    volumes:
+      - ./database-files:/docker-entrypoint-initdb.d/:ro
