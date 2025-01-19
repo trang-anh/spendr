@@ -53,6 +53,7 @@
   /* Input Focus State */
   .form-group input:focus,
   .form-group select:focus {
+    color:black;
     border-color: #007bff; /* Blue border on focus */
     outline: none; /* Remove default outline */
   }

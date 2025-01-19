@@ -46,7 +46,7 @@ function App() {
         <Routes>
           <Route path="/" element={<SignupProcess setUser={setUser} />} />
           <Route path="/dashboard" element={<Dashboard user={user} />} />
-          <Route path="/explore" element={<Explore />} />
+          <Route path="/explore" element={<Explore />} />n
           <Route path="/settings" element={<Settings user={user} setUser={setUser} />} />
           <Route path="/spender-types" element={<SpenderTypeDescriptions />} />
           <Route path="/pricing" element={<Pricing />} />

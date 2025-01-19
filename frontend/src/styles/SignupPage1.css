@@ -45,20 +45,21 @@
 }
 
 .form-group input {
+  color:black;
   width: 100%;
   padding: 10px;
   border-radius: 5px;
   border: 1px solid #cccccc;
   outline: none;
   font-size: 1rem;
-  background: rgba(255, 255, 255, 0.1);
-  color: white;
+  background: rgba(255, 255, 255, 0.1);;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .form-group input:focus {
   border-color: #00c6ff;
   box-shadow: 0 0 8px rgba(0, 198, 255, 0.5);
+  color:black
 }
 
 .next-button {
